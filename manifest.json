@@ -11,6 +11,6 @@
   ],
   "permissions": [
     "webRequest",
-    "http://ajax.googleapis.com/*"
+    "http://*/"
   ]
 }
