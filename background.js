@@ -8,7 +8,7 @@ $(function() {
       console.log(song_url);
 
       var xhr = new XMLHttpRequest();
-      xhr.open("POST", "http://localhost:3000/log", true);
+      xhr.open("POST", "http://apihackday.herokuapp.com/log", true);
       xhr.setRequestHeader("Content-type", "application/json")
       xhr.send(JSON.stringify(body));
     }
