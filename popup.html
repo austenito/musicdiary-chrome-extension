@@ -31,20 +31,9 @@
   </body>
   
   <script>
-    // TODO: Need to store feed in localstorage. Probably only update once or so
-    //       times a day. Also need to write helper funcs. Too lazy :D
     var bkg = chrome.extension.getBackgroundPage(); 
     bkg.init();
     
-    var user_city_feed_obj = bkg.get_user_city_feed_obj();
-    var city_display = user_city_feed_obj.city_display;
-    var deal_title = document.getElementById('deal_title');
-    deal_title.appendChild(document.createTextNode(' in ' + city_display));
-    
-    var deals_el = document.getElementById('deals');
-    bkg.add_deals_to_element(deals_el);
-    chrome.browserAction.setIcon({"path" : "images/dealios22gray.png"});
-	bkg.clear_new();
   </script>
 </head>
 </html>

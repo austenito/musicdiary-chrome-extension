@@ -1,18 +1,16 @@
 {
-  "name": "Dealios",
-  "version": "1.0.4",
-  "description": "Extension to find all the Groupon-like deals.",
-  "background_page": "background.html",
-  "options_page": "fancy-options/index.html",
-  "browser_action": {
-    "default_icon": "images/dealios22gray.png",
-    "popup": "popup.html"
-
-  },
-  "icons": { "16": "images/dealios16.png",
-             "48": "images/dealios48.png",
-            "128": "images/dealios128.png" },
+  "manifest_version": 2,
+  "name": "Api-Hack",
+  "version": "1.0.0",
+  "description": "",
+  "content_scripts": [
+   {
+    "matches": ["http://www.rdio.com/*"],
+      "js": ["lib/jquery-1.8.3.js", "background.js"]
+    }
+  ],
   "permissions": [
+    "webRequest",
     "http://ajax.googleapis.com/*"
   ]
 }
