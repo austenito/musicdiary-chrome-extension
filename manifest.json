@@ -3,14 +3,18 @@
   "name": "Api-Hack",
   "version": "1.0.0",
   "description": "",
+  "background": {
+    "scripts": ["background.js"]
+  },
   "content_scripts": [
    {
     "matches": ["http://www.rdio.com/*"],
-      "js": ["lib/jquery-1.8.3.js", "background.js"]
+      "js": ["lib/jquery-1.8.3.js", "request.js"]
     }
   ],
   "permissions": [
     "webRequest",
+    "http://www.rdio.com/*",
     "http://*/"
   ]
 }
