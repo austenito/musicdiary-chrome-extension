@@ -12,9 +12,13 @@ var musicDiaryListener = (function() {
     lastRequestId = details.requestId;
   }, {urls: ["http://www.rdio.com/*"]}, []);
 
+  chrome.tabs.onActivated.addListener(function(info) {
+    chrome.tabs.query({ url: "http://www.rdio.com/*"}, bg.toggleIcon);
+  });
+
   bg.getSongUrlFromTab = function(tabs) {
     if(tabs.length > 0) {
-      chrome.tabs.sendMessage(tabs[0].id, {request: "getSongUrl"}, bg.sendSongPlayed);
+      chrome.tabs.sendMessage(tabs[0].id, {name: "getSongUrl"}, bg.sendSongPlayed);
     }
   };
 
@@ -34,6 +38,22 @@ var musicDiaryListener = (function() {
       xhr.send(JSON.stringify(body));
     }
     lastSongUrlPlayed = songUrl;
+  }
+
+  bg.toggleIcon = function(tabs) {
+    if(tabs.length > 0) {
+      chrome.tabs.sendMessage(tabs[0].id, {name: "getAuthed"}, function(response) {
+        if(response.authenticated) {
+          chrome.browserAction.setIcon({ path: '/images/rdio-blue.png' });
+        }
+        else {
+          chrome.browserAction.setIcon({ path: '/images/rdio-gray.png' });
+        }
+      });
+    }
+    else {
+      chrome.browserAction.setIcon({ path: '/images/rdio-gray.png' });
+    }
   }
 
   return bg;
