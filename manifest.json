@@ -8,13 +8,18 @@
   },
   "content_scripts": [
    {
-    "matches": ["http://www.rdio.com/*"],
+    "matches": ["http://www.rdio.com/*", "http://*/"],
       "js": ["lib/jquery-1.8.3.js", "request.js"]
     }
   ],
   "permissions": [
     "webRequest",
+    "cookies",
     "http://www.rdio.com/*",
     "http://*/"
-  ]
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/rdio-gray.png"
+  }
 }
