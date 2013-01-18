@@ -1,15 +1,11 @@
 var musicDiaryListener = (function() {
   var bg = {}
-  var lastRequestId = 0;
-  var lastSongUrlPlayed = "";
-  var rdioUrl = "http://www.rdio.com/api/1/getPlaybackInfo";
+  var rdioUrl = "http://www.rdio.com/api/1/addStartEvent";
 
   chrome.webRequest.onCompleted.addListener(function(details) {
-    var nextRequestId = lastRequestId + 1
-    if (details.url == rdioUrl && nextRequestId != lastRequestId) {
+    if (details.url == rdioUrl) {
       chrome.tabs.query({url: "http://www.rdio.com/*"}, bg.getSongUrlFromTab);
     }
-    lastRequestId = details.requestId;
   }, {urls: ["http://www.rdio.com/*"]}, []);
 
   chrome.tabs.onActivated.addListener(function(info) {
@@ -24,7 +20,7 @@ var musicDiaryListener = (function() {
 
   bg.sendSongPlayed = function(response) {
     var songUrl = response.songUrl;
-    if(songUrl && lastSongUrlPlayed != songUrl) {
+    if(songUrl) {
       console.log(songUrl);
 
       body = {};
@@ -37,7 +33,6 @@ var musicDiaryListener = (function() {
       xhr.setRequestHeader("Content-type", "application/json");
       xhr.send(JSON.stringify(body));
     }
-    lastSongUrlPlayed = songUrl;
   }
 
   bg.toggleIcon = function(tabs) {
