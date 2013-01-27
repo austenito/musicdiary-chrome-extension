@@ -6,7 +6,7 @@ chrome.extension.onMessage.addListener(
         sendResponse({songUrl: songUrl});
       }
       else if(name == "getAuthed") {
-        $.get("http://localhost:3000/check_auth", function(data){
+        $.get(request.server + "/check_auth", function(data){
           sendResponse(data);
         });
         return true; // Return true to send response async

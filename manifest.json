@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Api-Hack",
-  "version": "1.0.0",
+  "name": "Music Diary",
+  "version": "0.0.1",
   "description": "",
   "background": {
     "scripts": ["lib/jquery-1.8.3.js", "background.js"]
@@ -22,5 +22,6 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": "images/rdio-gray.png"
-  }
+  },
+  "homepage_url": "http://localhost:3000"
 }

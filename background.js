@@ -28,8 +28,7 @@ var musicDiaryListener = (function() {
       body["url"] = songUrl;
 
       var xhr = new XMLHttpRequest();
-      //xhr.open("POST", "http://apihackday.herokuapp.com/log", true);
-      xhr.open("POST", "http://localhost:3000/log", true);
+      xhr.open("POST", bg.getServer() + "/log", true);
       xhr.setRequestHeader("Content-type", "application/json");
       xhr.send(JSON.stringify(body));
     }
@@ -37,7 +36,10 @@ var musicDiaryListener = (function() {
 
   bg.toggleIcon = function(tabs) {
     if(tabs.length > 0) {
-      chrome.tabs.sendMessage(tabs[0].id, {name: "getAuthed"}, function(response) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        name: "getAuthed",
+        server: bg.getServer()
+      }, function(response) {
         if(response.authenticated) {
           chrome.browserAction.setIcon({ path: '/images/rdio-blue.png' });
         }
@@ -49,6 +51,10 @@ var musicDiaryListener = (function() {
     else {
       chrome.browserAction.setIcon({ path: '/images/rdio-gray.png' });
     }
+  }
+
+  bg.getServer = function() {
+    return chrome.app.getDetails().homepage_url;
   }
 
   return bg;
