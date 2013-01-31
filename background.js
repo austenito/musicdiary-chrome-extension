@@ -41,15 +41,15 @@ var musicDiaryListener = (function() {
         server: bg.getServer()
       }, function(response) {
         if(response.authenticated) {
-          chrome.browserAction.setIcon({ path: '/images/rdio-blue.png' });
+          chrome.browserAction.setIcon({ path: '/images/diary-blue.png' });
         }
         else {
-          chrome.browserAction.setIcon({ path: '/images/rdio-gray.png' });
+          chrome.browserAction.setIcon({ path: '/images/diary-gray.png' });
         }
       });
     }
     else {
-      chrome.browserAction.setIcon({ path: '/images/rdio-gray.png' });
+      chrome.browserAction.setIcon({ path: '/images/diary-gray.png' });
     }
   }
 

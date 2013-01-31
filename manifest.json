@@ -21,7 +21,7 @@
   ],
   "browser_action": {
     "default_popup": "popup.html",
-    "default_icon": "images/rdio-gray.png"
+    "default_icon": "images/diary-gray.png"
   },
   "homepage_url": "http://musicdiary.me"
 }
