@@ -18,6 +18,13 @@ var musicDiaryListener = (function() {
     }
   };
 
+  chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    switch (request.name) {
+      case "popup-click":
+        chrome.tabs.query({ url: "http://www.rdio.com/*"}, bg.toggleIcon);
+    }
+  });
+
   bg.sendSongPlayed = function(response) {
     var songUrl = response.songUrl;
     if(songUrl) {
