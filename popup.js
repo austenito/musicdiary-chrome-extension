@@ -14,4 +14,5 @@ $(document).ready(function() {
   });
 
   $("#signup-link").attr("href", serverUrl);
+  $("#title-link").attr("href", serverUrl);
 });
