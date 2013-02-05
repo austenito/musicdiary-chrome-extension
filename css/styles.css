@@ -6,9 +6,17 @@
   outline: 0;
 }
 
+#album-icon {
+  width: 50px;
+}
+
+#diary-table td {
+  vertical-align: bottom;
+}
+
 body {
   height: 100px;
-  width: 350px;
+  width: 500px;
   background-color: #f6f6f6;
   font-family: Lato; }
   body p {

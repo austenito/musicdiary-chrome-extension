@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="span4">
+            <div class="span6">
               <div id="config" style="display: none"></div>
               <div id="login" class="alert alert-error">
                 Please <a id="signup-link" target="_blank">Login</a> to add music to your diary
@@ -28,11 +28,38 @@
             </div>
           </div>
 
+          <div class="row header">
+            <div class="span6">
+              <h4>Last 5 Songs</h4>
+              <table id="diary-table" class="table table-striped">
+                <thead>
+                  <td id="album-icon"></td>
+                  <td></td>
+                  <td></td>
+                </thead>
+              </table>
+            </div>
+          </div>
+
+          <div class="row header">
+            <div class="span6">
+              <h4>Top 5 Songs</h4>
+              <table id="playlist-table" class="table table-striped">
+                <thead>
+                  <td id="album-icon"></td>
+                  <td></td>
+                  <td>Song Count</td>
+                </thead>
+              </table>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </body>
 
   <script src="lib/jquery-1.8.3.js"></script>
+  <script src="lib/underscore-1.4.4.js"></script>
   <script src="popup.js"></script>
 </html>
