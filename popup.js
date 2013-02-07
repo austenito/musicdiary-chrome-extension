@@ -22,6 +22,7 @@ $(document).ready(function() {
   var getDiary = function() {
     $.get(serverUrl + "/api/diary?song_count=5", function(data) {
       _.each(data.songs, function(element, index, list) {
+        $("#diary-loading").hide();
         var row = "<tr>";
         row += "<td><img src=" + element.icon + "></td>";
         row += "<td><a target='_blank' href='http://www.rdio.com/" + element.url + "'>" + element.name + "</a></td>";
@@ -35,6 +36,7 @@ $(document).ready(function() {
   var getPlaylist = function() {
     $.get(serverUrl + "/api/playlist?song_count=5", function(data) {
       _.each(data.playlist, function(element, index, list) {
+        $("#playlist-loading").hide();
         var row = "<tr>";
         row += "<td><img src=" + element.icon + "></td>";
         row += "<td><a target='_blank' href='http://www.rdio.com/" + element.url + "'>" + element.name + "</a></td>";
